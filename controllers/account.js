@@ -17,4 +17,3 @@ const deactivate_account = async (req, res) => {
     const status = res.body.active
     status = !status
 }
-

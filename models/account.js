@@ -1,15 +1,24 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
-var Account = new Schema({
+const Account = new Schema({
   user_id: {
+    // type: mongoose.Schema.Types.ObjectId, ref: 'Account',
     type: String,
-    required:true
+    required: true
   },
   balance: {
     type: Number,
-    required:true
+    required: true,
+    default: 0
   },
-  account_number: Number,
+  account_number: {
+    type: Number,
+    required: true
+  },
+  account_name: {
+    type: String,
+    required: false
+  },
   active: Boolean,
 },
   {
@@ -20,5 +29,4 @@ var Account = new Schema({
   }
 );
 
-module.exports = mongoose.model("account",Account);
- 
+module.exports = mongoose.model("accounts", Account);

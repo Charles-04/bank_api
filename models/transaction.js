@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
- var Transaction = new Schema({
+
+const Transaction = new Schema({
   amount: Number,
    user_id: {
-     type: String,
+    //  type: mongoose.Schema.Types.ObjectId, ref: 'Account',
+    type: String,
      required:true,
+    
   },
   ref_Id: String,
   type: String,
@@ -18,6 +21,5 @@ const Schema = mongoose.Schema
     }
  }
  );
-  console.log('here')
-module.exports =  mongoose.model("transaction",Transaction);
+module.exports =  mongoose.model("transactions", Transaction);
  

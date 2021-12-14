@@ -1,22 +1,10 @@
-const Transactions = require("../models/transaction")
+const Transaction = require("../controllers/transactions")
+const express = require('express')
+const router = express.Router()
 
-module.exports({
-     async withdrawal = () => {
-         
-       try {
-           
-       } catch (error) {
-           
-       }
-     },
-     
-     debitTransactions =() => {
-        
-    },
+router.post('/deposit', Transaction.create_deposit);
+router.post('/withdraw', Transaction.create_withdraw);
+router.post('/reserve/:id', Transaction.reverse_transaction);
+router.get('/:id', Transaction.all_transactions);
 
-    reverseTransation = () => {
-     
-    }
-
-
-})
+module.exports = router;

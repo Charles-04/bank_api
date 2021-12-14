@@ -33,7 +33,7 @@ const Customer = new Schema({
   }
 });
 
-module.exports = mongoose.model("Customer",Customer)
+module.exports = mongoose.model("customers",Customer)
   
 
 

@@ -1,10 +1,10 @@
-const Customer = require("../controllers/customer")
-const express = require('express')
-const router = express.Router()
+const Customer = require("../controllers/customer");
+const express = require('express');
+const router = express.Router();
 
-router.post('/',Customer.create_customer)
+router.post('/', Customer.create_customer);
 
-module.exports = router
+module.exports = router;
 
 
 
