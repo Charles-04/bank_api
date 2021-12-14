@@ -1,21 +1,39 @@
 const mongoose = require('mongoose')
-var Customer = mongoose.model("Customer", {
-    first_name: String,
-    last_name: String,
-    id : Number,
-    gender: String,
-    verification_number : Number,
-    date_of_birth: Date,
-    national_id : Number,
-    email: String,
-    next_of_kin: String,
-    home_address: String,
-    active : Boolean,
-    createdat: Date,
-    updatedat: Date
-  });
+const Schema = mongoose.Schema
+const Customer = new Schema({
+  first_name: {
+    type: String,
+    required:true,
+  },
+  last_name:{
+    type: String,
+    required:true,
+  },
+  password:{
+    type: String,
+    required:true,
+  },
+  gender: {
+    type: String,
+    required:false,
+  },
+  email:{
+    type: String,
+    required:true,
+  },
+  active: {
+    type: Boolean,
+    required:false,
+  },
+},
+{
+    timestamps :{
+    createdAt: "createdAt",
+    updatedAt: "updatedAt" 
+  }
+});
 
-module.exports = { Customer };
+module.exports = mongoose.model("Customer",Customer)
   
 
 

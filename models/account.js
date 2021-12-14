@@ -1,16 +1,24 @@
 const mongoose = require('mongoose');
-const {Customer}  = require('./customers.js');
-var Account = mongoose.model("account", {
-  id: String,
-  user_id : String,
-  balance: Number,
-  account_type: String,
-  Created_at: Date,
-  Updated_at: Date,
-  amount: Number,
-  number : Number
-    
-});
-  console.log('here')
-module.exports({ Account });
+const Schema = mongoose.Schema
+var Account = new Schema({
+  user_id: {
+    type: String,
+    required:true
+  },
+  balance: {
+    type: Number,
+    required:true
+  },
+  account_number: Number,
+  active: Boolean,
+},
+  {
+    timestamps: {
+      createdAt: "createdAt",
+      updatedAt: "updatedAt"
+    }
+  }
+);
+
+module.exports = mongoose.model("account",Account);
  
